@@ -14,14 +14,15 @@ def vcenterinfo():
     print()
     print("VCenter Info Selected")
     print()
-    vconnect.vconnectfunction()
+    vconnect.vconnectfn()
 
 def sessioninfo():
     print()
     print("Session Details Selected")
+    print()
     # Contains vcenter username, IP of mgmt box, and the domain name of the vcenter host
     print("~~~~~~~~~~~~~~~~~~~~~~")
-    print("Session Information")
+    vsession.vsessionfn()
     print("~~~~~~~~~~~~~~~~~~~~~~")
 
 def vmdetails():

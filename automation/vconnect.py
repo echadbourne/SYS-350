@@ -16,7 +16,7 @@ import ssl
 passw = getpass.getpass()
 
 
-def vconnectfunction():
+def vconnectfn():
     s = ssl.SSLContext(ssl.PROTOCOL_TLSv1_2)
     s.verify_mode = ssl.CERT_NONE
     #Connect to the host with the variables already specified
@@ -25,4 +25,4 @@ def vconnectfunction():
     print(aboutInfo)
     print(aboutInfo.fullName)
 
-vconnectfunction()
+vconnectfn()
