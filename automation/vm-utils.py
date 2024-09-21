@@ -1,5 +1,7 @@
 # location for vm-utils script
 import vconnect
+import vsession
+import vdetail
 #basic menu
 def menu():
     print("[1] VCenter Info")

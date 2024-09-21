@@ -1,0 +1,2 @@
+#contains the vdetail function
+
