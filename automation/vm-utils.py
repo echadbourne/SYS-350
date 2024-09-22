@@ -28,12 +28,13 @@ def sessioninfo():
 def vmdetails():
     print("VM Details Selected")
     print("~~~~~~~~~~~~~~~~~~~~~~")
-    #print a list of all of the vms managed by vcenter
+    vdetail.vlistfn()
     print("~~~~~~~~~~~~~~~~~~~~~~")
     vm = str(input("Enter the name of your VM. Leave blank if you want all printed: "))
     #match vm name to values, print metadata containing name, state, number of processors, 
     #total memory (might need some math and logic) and ip address (install vmtools on pfsense)
 
+vconnect.vconnectfn()
 menu()
 print()
 option = int(input("Enter your selection: "))
@@ -52,6 +53,6 @@ while option != 0:
         print("Please select a valid option")
     print()   
     menu()
-    option = int(input("Enter yout selection: "))
+    option = int(input("Enter your selection: "))
 
 print("Program exiting, goodbye!")

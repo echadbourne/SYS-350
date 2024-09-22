@@ -15,14 +15,14 @@ from pyVim.connect import SmartConnect
 import ssl
 passw = getpass.getpass()
 
+s = ssl.SSLContext(ssl.PROTOCOL_TLSv1_2)
+s.verify_mode = ssl.CERT_NONE
+#Connect to the host with the variables already specified
+si = SmartConnect(host=vhost, user=vadmin, pwd=passw, sslContext=s)
+content = si.content
 
 def vconnectfn():
-    s = ssl.SSLContext(ssl.PROTOCOL_TLSv1_2)
-    s.verify_mode = ssl.CERT_NONE
-    #Connect to the host with the variables already specified
-    si = SmartConnect(host=vhost, user=vadmin, pwd=passw, sslContext=s)
     aboutInfo=si.content.about
     print(aboutInfo)
     print(aboutInfo.fullName)
 
-vconnectfn()
