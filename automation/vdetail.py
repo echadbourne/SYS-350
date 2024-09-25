@@ -1,7 +1,7 @@
 #contains the vdetail function
 import vconnect
 from pyVmomi import vim #not imported with vconnect
-import re
+
 
 content = vconnect.content
 
