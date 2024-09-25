@@ -27,10 +27,7 @@ def sessioninfo():
 
 def vmdetails():
     print("VM Details Selected")
-    print("~~~~~~~~~~~~~~~~~~~~~~")
     vdetail.vlistfn()
-    print("~~~~~~~~~~~~~~~~~~~~~~")
-    vm = str(input("Enter the name of your VM. Leave blank if you want all printed: "))
     #match vm name to values, print metadata containing name, state, number of processors, 
     #total memory (might need some math and logic) and ip address (install vmtools on pfsense)
 

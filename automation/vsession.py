@@ -4,6 +4,7 @@ import socket
 import getpass
 import vconnect
 
+vcontent = vconnect.content
 
 def vsessionfn():
     #Save hostname to variable with socket
@@ -26,9 +27,8 @@ def vsessionfn():
     #print vhost (from json)
     print("Vcenter server: " + vconnect.vhost)
 
-
-
-# Include DOMAIN/username  from pyvmomi seesion
-
+    session = vcontent.sessionManager.currentSession
+    DomainUser = session.userName
+    print("Domain User: " + DomainUser)
 
 
