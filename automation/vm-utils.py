@@ -2,8 +2,7 @@
 import vconnect
 import vsession
 import vdetail
-import vpower
-import vsnapshot
+import vaction
 
 
 #basic menu
@@ -17,10 +16,10 @@ def menu():
 def actions():
     print("[1] Power on VM")
     print("[2] Power Off VM")
-    print("[3] Snapshot VM")
-    print("[4] Restore Latest Snapshot")
-    print("[5] Create Full Clone")
-    print("[6] Create Vm from Template")
+    print("[3] Reboot VM")
+    print("[4] Snapshot VM")
+    print("[5] Create vm from Template")
+    print("[6] Delete VM")
 
 vconnect.vconnectfn()
 menu()
@@ -57,15 +56,15 @@ while option != 0:
         while vmaction != 0:
             if vmaction == 1:
                 #power on vm
-                vpower.poweron(vmselect)
+                vaction.poweron(vmselect)
 
             elif vmaction == 2:
                 #power off vm
-                vpower.poweroff(vmselect)
+                vaction.poweroff(vmselect)
 
             elif vmaction == 3:
                 #snapshot vm
-                vsnapshot.snapshot(vmselect)
+                vactiont.snapshot(vmselect)
 
             elif vmaction == 4:
                 #do something
