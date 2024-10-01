@@ -14,8 +14,9 @@ def GetObjects(content, ObjType):
         obj.update({MObject:MObject.name})
     return obj
 
-def vlistfn():
-    VMList = GetObjects(content,[vim.VirtualMachine])
+GetVMs = GetObjects(content,[vim.VirtualMachine])
+
+def vdetails(VMList):
     print()
     print("~~~~~~~~~~~~~~~~~~~~~~")
     print("VM Names:")
@@ -49,5 +50,12 @@ def vlistfn():
             print("~~~~~~~~~~~~~~~~~~~~~~")
     
 
-
+def vlist(VMList):
+    VMList = GetObjects(content,[vim.VirtualMachine])
+    print()
+    print("~~~~~~~~~~~~~~~~~~~~~~")
+    print("VM Names:")
+    for vm in VMList:
+        print(vm.name)
+    print("~~~~~~~~~~~~~~~~~~~~~~")
 
