@@ -18,8 +18,8 @@ def actions():
     print("[2] Power Off VM")
     print("[3] Reboot VM")
     print("[4] Snapshot VM")
-    print("[5] Create vm from Template")
-    print("[6] Delete VM")
+    print("[5] Rename VM")
+    print("[6] Execute Command on VM")
 
 vconnect.vconnectfn()
 menu()
@@ -63,17 +63,18 @@ while option != 0:
                 vaction.poweroff(vmselect)
 
             elif vmaction == 3:
-                #snapshot vm
-                vactiont.snapshot(vmselect)
+                #soft reboot vm
+                vaction.reboot(vmselect)
 
             elif vmaction == 4:
-                #do something
+                #snapshot vm
+                vaction.snapshot(vmselect)
 
             elif vmaction == 5:
-                #do something
+                #rename vm
 
             elif vmaction == 6:
-                #do something
+                #execute command on vm
 
             else:
                 print("Please select a valid action")

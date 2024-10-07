@@ -54,8 +54,8 @@ def vlist(VMList):
     VMList = GetObjects(content,[vim.VirtualMachine])
     print()
     print("~~~~~~~~~~~~~~~~~~~~~~")
-    print("VM Names:")
+    print("VM Names and Power State:")
     for vm in VMList:
-        print(vm.name)
+        print(vm.name + vm.runtime.powerState)
     print("~~~~~~~~~~~~~~~~~~~~~~")
 
