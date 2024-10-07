@@ -1,5 +1,7 @@
 import vconnect
 import vdetail
+import getpass
+import time
 from pyVmomi import vim
 
 content = vconnect.content
@@ -59,21 +61,28 @@ def rename(reqvm):
 
 def hostcommand(reqvm):
     #Execute a command on a host
-    print("Can only be used on Linux based vms at this time")
     for vm in GetVMs:
         if (reqvm == vm.name):
-            guestosMgr = vm.guestOperationsManager
+            user = input("Please enter the username for " + vm.name + " : ")
+            print("Please enter the password for " + vm.name)
+            password = getpass.getpass()
+            creds = vim.vm.guest.NamePasswordAuthentication(username=user, password=password)
+            guestosMgr = content.guestOperationsManager
             programPath = "/bin/bash"
             arguments = input(str("Please enter the command you want to execute: "))
             processMgr = guestosMgr.processManager
             processSpec = vim.vm.guest.ProcessManager.ProgramSpec(programPath=programPath, arguments=arguments)
-            pid = processMgr.StartProgramInGuest(vm, processSpec)
+            pid = processMgr.StartProgramInGuest(vm, creds, processSpec)
             while True:
-                processInfo = processMgr.ListProcessesInGuest(vm, [pid])[0]
+                processInfo = processMgr.ListProcessesInGuest(vm, creds, [pid])[0]
                 if processInfo.exitCode is not None:
                     break
                 time.sleep(1)
             print("Process exited with code:", processInfo.exitCode)
+            #The only way to get the output of the command would be to put it in a file then read that file.
+            #I did not have the time to figure this out
+            #Check out this link: 
+            #https://stackoverflow.com/questions/60318680/how-to-get-a-file-from-a-server-in-a-cluster-in-vsphere-using-pyvmomi-to-remote
 
-hostcommand("kali2.1")
+#hostcommand("kali2.1")
 

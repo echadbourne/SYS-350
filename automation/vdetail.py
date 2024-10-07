@@ -56,6 +56,6 @@ def vlist(VMList):
     print("~~~~~~~~~~~~~~~~~~~~~~")
     print("VM Names and Power State:")
     for vm in VMList:
-        print(vm.name + vm.runtime.powerState)
+        print(vm.name + " " + vm.runtime.powerState)
     print("~~~~~~~~~~~~~~~~~~~~~~")
 
