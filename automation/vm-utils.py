@@ -47,7 +47,7 @@ while option != 0:
         vdetail.vlist(vdetail.GetVMs)
         vmselect = str(input("Please select a vm: ")) #This goes in the functions as a parameter
         actions()
-        vmaction = str(input("Please select an action, 0 for none: ")) #This is used for the menu to select the right action function
+        vmaction = int(input("Please select an action, 0 for none: ")) #This is used for the menu to select the right action function
         print("test1")
         #use functions from other files, they should have a
         #"vm" parameter so just insert vmselect there
@@ -57,24 +57,30 @@ while option != 0:
             if vmaction == 1:
                 #power on vm
                 vaction.poweron(vmselect)
+                break
             elif vmaction == 2:
                 #power off vm
                 print(vmaction)
                 print("Power off selected")
                 vaction.poweroff(vmselect)
+                break
             elif vmaction == 3:
                 #soft reboot vm
                 vaction.reboot(vmselect)
+                break
             elif vmaction == 4:
                 #snapshot vm
                 vaction.snapshot(vmselect)
+                break
             elif vmaction == 5:
                 vaction.rename(vmselect)
                 #rename vm
+                break
             elif vmaction == 6:
                 #execute command on vm
                 print("Can only be used on Linux based vms at this time")
                 vaction.hostcommand(vmselect)
+                break
 
         else:
             print("Please select a valid action")

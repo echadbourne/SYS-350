@@ -53,7 +53,7 @@ def snapshot(reqvm):
 
 def rename(reqvm):
     #rename a vm
-    for vm in GetVms:
+    for vm in GetVMs:
         if (reqvm == vm.name):
             new_name = input(str("Please enter your new vm name: "))
             print("Renaming from " + vm.name + " to " + new_name)
