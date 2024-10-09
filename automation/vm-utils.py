@@ -48,7 +48,6 @@ while option != 0:
         vmselect = str(input("Please select a vm: ")) #This goes in the functions as a parameter
         actions()
         vmaction = int(input("Please select an action, 0 for none: ")) #This is used for the menu to select the right action function
-        print("test1")
         #use functions from other files, they should have a
         #"vm" parameter so just insert vmselect there
         print(vmaction)
@@ -56,28 +55,44 @@ while option != 0:
         while vmaction != 0:
             if vmaction == 1:
                 #power on vm
+                print("~~~~~~~~~~~~~~~~~~~~~~")
+                print("Power On Selected")
+                print("~~~~~~~~~~~~~~~~~~~~~~")
                 vaction.poweron(vmselect)
                 break
             elif vmaction == 2:
                 #power off vm
-                print(vmaction)
-                print("Power off selected")
+                print("~~~~~~~~~~~~~~~~~~~~~~")
+                print("Power Off Selected")
+                print("~~~~~~~~~~~~~~~~~~~~~~")
                 vaction.poweroff(vmselect)
                 break
             elif vmaction == 3:
                 #soft reboot vm
+                print("~~~~~~~~~~~~~~~~~~~~~~")
+                print("Reboot Selected")
+                print("~~~~~~~~~~~~~~~~~~~~~~")
                 vaction.reboot(vmselect)
                 break
             elif vmaction == 4:
                 #snapshot vm
+                print("~~~~~~~~~~~~~~~~~~~~~~")
+                print("Snapshot Selected")
+                print("~~~~~~~~~~~~~~~~~~~~~~")
                 vaction.snapshot(vmselect)
                 break
             elif vmaction == 5:
+                print("~~~~~~~~~~~~~~~~~~~~~~")
+                print("Rename Selected")
+                print("~~~~~~~~~~~~~~~~~~~~~~")
                 vaction.rename(vmselect)
                 #rename vm
                 break
             elif vmaction == 6:
                 #execute command on vm
+                print("~~~~~~~~~~~~~~~~~~~~~~")
+                print("Host Command Selected")
+                print("~~~~~~~~~~~~~~~~~~~~~~")
                 print("Can only be used on Linux based vms at this time")
                 vaction.hostcommand(vmselect)
                 break
