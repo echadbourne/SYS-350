@@ -32,6 +32,7 @@ while option != 0:
         print("VCenter Info Selected")
         print()
         vconnect.vconnectfn()
+        option = 5
     elif option == 2:
         print()
         print("Session Details Selected")
@@ -40,9 +41,11 @@ while option != 0:
         print("~~~~~~~~~~~~~~~~~~~~~~")
         vsession.vsessionfn()
         print("~~~~~~~~~~~~~~~~~~~~~~")
+        option = 5
     elif option == 3:
         print("VM Details Selected")
         vdetail.vdetails(vdetail.GetVMs)
+        option = 5
     elif option == 4:
         vdetail.vlist(vdetail.GetVMs)
         vmselect = str(input("Please select a vm: ")) #This goes in the functions as a parameter
@@ -50,8 +53,8 @@ while option != 0:
         vmaction = int(input("Please select an action, 0 for none: ")) #This is used for the menu to select the right action function
         #use functions from other files, they should have a
         #"vm" parameter so just insert vmselect there
-        print(vmaction)
         #bunch of else and elif running the proper functions
+        
         while vmaction != 0:
             if vmaction == 1:
                 #power on vm
@@ -97,16 +100,22 @@ while option != 0:
                 vaction.hostcommand(vmselect)
                 break
 
-        else:
-            print("Please select a valid action")
-            print()
-            actions()
-            vmaction = str(input("Please select an action, 0 for none: "))
+            else:
+                print("Please select a valid action")
+                print()
+                actions()
+                vmaction = str(input("Please select an action, 0 for none: "))
+        option = 5
+        print()
 
+    elif option == 5:
+        menu()
+        option = int(input("Enter your selection: "))
     else:
         print("Please select a valid option")
         print()   
         menu()
         option = int(input("Enter your selection: "))
+    #option = 0
 
 print("Program exiting, goodbye!")
